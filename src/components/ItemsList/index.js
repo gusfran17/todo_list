@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import './styles.css';
 import { ItemsListItem } from './../ItemsListItem';
-import { removeItem } from '../../logic/todos';
+import { removeItem, setItemDone } from '../../logic/todos';
 
-export const ItemsList = ({ items, onRemove, }) => {
+export const ItemsList = ({ items, onRemove, onDone }) => {
   return (
     <div>
       <ul className="itemsList-ul">
@@ -14,7 +14,8 @@ export const ItemsList = ({ items, onRemove, }) => {
           <li key={item.id} >
             <ItemsListItem
               item={item}
-              onRemove={onRemove}/>
+              onRemove={onRemove}
+              onDone={onDone}/>
           </li>
         )}
       </ul>
@@ -25,6 +26,7 @@ export const ItemsList = ({ items, onRemove, }) => {
 ItemsList.propTypes = {
   items: PropTypes.array.isRequired,
   onRemove: PropTypes.func.isRequired,
+  onDone: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {
@@ -33,6 +35,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   onRemove: (id) => dispatch(removeItem(id)),
+  onDone: (id, done) => dispatch(setItemDone(id,done)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemsList);

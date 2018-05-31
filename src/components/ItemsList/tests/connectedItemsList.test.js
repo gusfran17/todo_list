@@ -6,6 +6,8 @@ import ItemsListConnected from '../index';
 describe('Connected ItemsList', () => {
   const initialState = {
     todos: {
+      onRemove: () => {},
+      onDone: () => {},
       items: [{ id: 1, content: 'First' }, { id: 2, content: 'Second' }, { id: 3, content: 'Third' }]
     }
   };
@@ -25,8 +27,12 @@ describe('Connected ItemsList', () => {
     expect(container.prop('items')).toHaveLength(3);
   });
 
-  it('should have defined functions', () => {
+  it('should have onRemove defined function', () => {
     expect(container.prop('onRemove')).toBeDefined();
+  });
+
+  it('should have onDone defined function', () => {
+    expect(container.prop('onDone')).toBeDefined();
   });
 
 });

@@ -3,3 +3,9 @@
   cursor: pointer;
   margin-left: 20px;
 }
+
+.itemControl-done {
+  color: green;
+  cursor: pointer;
+  margin-left: 10px;
+}

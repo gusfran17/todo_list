@@ -1,10 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { ItemsList } from '../index';
 
 const defaultProps = {
   items: [],
-  onRemove: () => {}
+  onRemove: () => {},
+  onDone: ()=> {}
 };
 
 describe('ItemsList', () => {
@@ -27,5 +28,15 @@ describe('ItemsList', () => {
     const items = [{ id: 1, content: 'Test 1' }, { id: 2, content: 'Test 2' }];
     const renderedItem = shallow(<ItemsList {...defaultProps} items={items} />);
     expect(renderedItem.find('li')).toHaveLength(2);
+  });
+
+  it('should render with onRemove function', () => {
+    const renderedItem = mount(<ItemsList {...defaultProps} />);
+    expect(renderedItem.props().onRemove).toBeDefined();
+  });
+
+  it('should render with onDone function', () => {
+    const renderedItem = mount(<ItemsList {...defaultProps} />);
+    expect(renderedItem.props().onDone).toBeDefined();
   });
 });
