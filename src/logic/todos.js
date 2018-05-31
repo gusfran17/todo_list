@@ -1,6 +1,7 @@
 export const ADD_ITEM = 'qgo/assessment/ADD_ITEM';
 export const REMOVE_ITEM = 'qgo/assessment/REMOVE_ITEM';
 export const SET_ITEM_DONE = 'qgo/assessment/SET_ITEM_DONE';
+export const SET_SHOW_COMPLETED = 'qgo/assessment/SET_SHOW_COMPLETED';
 
 export const addItem = (content) => {
   return { type: ADD_ITEM, content };
@@ -14,7 +15,12 @@ export const setItemDone = (id, done) => {
   return { type: SET_ITEM_DONE, id, done };
 };
 
+export const setShowCompleted= (showCompleted) => {
+  return { type: SET_SHOW_COMPLETED, showCompleted };
+}
+
 export const initialState = {
+  showCompleted: true,
   items: [
     { id: 1, content: 'Call mum', done: false },
     { id: 2, content: 'Buy cat food', done: false },
@@ -61,6 +67,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         items: statusUpdatedItems,
       };
+    case SET_SHOW_COMPLETED:
+      return {
+        ...state,
+        showCompleted: action.showCompleted
+      }
     default:
       return state;
   }

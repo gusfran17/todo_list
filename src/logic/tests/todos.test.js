@@ -1,4 +1,4 @@
-import reducer, { initialState, addItem, removeItem, setItemDone } from '../todos';
+import reducer, { initialState, addItem, removeItem, setItemDone, setShowCompleted } from '../todos';
 
 describe('reducer', () => {
   let state;
@@ -44,5 +44,11 @@ describe('reducer', () => {
     expect(result.items[0].done).toEqual(true);
     expect(result.items[1].done).toEqual(false);
     expect(result.items[2].done).toEqual(false);
+  });
+
+  it('should set showCompleted to false', () => {
+    const mockAction = setShowCompleted(false);
+    const result = reducer(state, mockAction);
+    expect(result.showCompleted).toEqual(false);
   });
 });
