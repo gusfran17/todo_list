@@ -1,5 +1,6 @@
 export const ADD_ITEM = 'qgo/assessment/ADD_ITEM';
 export const REMOVE_ITEM = 'qgo/assessment/REMOVE_ITEM';
+export const SET_ITEM_DONE = 'qgo/assessment/SET_ITEM_DONE';
 
 export const addItem = (content) => {
   return { type: ADD_ITEM, content };
@@ -9,11 +10,15 @@ export const removeItem = id => {
   return { type: REMOVE_ITEM, id };
 };
 
+export const setItemDone = (id, done) => {
+  return { type: SET_ITEM_DONE, id, done };
+};
+
 export const initialState = {
   items: [
-    { id: 1, content: 'Call mum' },
-    { id: 2, content: 'Buy cat food' },
-    { id: 3, content: 'Water the plants' },
+    { id: 1, content: 'Call mum', done: false },
+    { id: 2, content: 'Buy cat food', done: false },
+    { id: 3, content: 'Water the plants', done: false },
   ],
 };
 
@@ -40,6 +45,21 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         items: [...state.items, newItem],
+      };
+    case SET_ITEM_DONE:
+      const statusUpdatedItems = state.items.map((item, index) => {
+        if (item.id === action.id) {
+            return {
+              ...item,
+              done: action.done
+            };
+        } else {
+          return item;
+        }
+      });
+      return {
+        ...state,
+        items: statusUpdatedItems,
       };
     default:
       return state;

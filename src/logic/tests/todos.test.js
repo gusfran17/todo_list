@@ -1,11 +1,11 @@
-import reducer, { initialState, addItem, removeItem } from '../todos';
+import reducer, { initialState, addItem, removeItem, setItemDone } from '../todos';
 
 describe('reducer', () => {
   let state;
   beforeEach(() => {
     state = {
       showCompleted: true,
-      items: [{ id: 1, content: 'first' }, { id: 2, content: 'second' }, { id: 3, content: 'third' }],
+      items: [{ id: 1, content: 'first', done: false }, { id: 2, content: 'second', done: false }, { id: 3, content: 'third', done: false }],
     };
   });
 
@@ -36,5 +36,13 @@ describe('reducer', () => {
     expect(result.items).toHaveLength(2);
     expect(result.items[0].id).toEqual(1);
     expect(result.items[1].id).toEqual(3);
+  });
+
+  it('should set item on SET_ITEM_DONE', () => {
+    const mockAction = setItemDone(1, true);
+    const result = reducer(state, mockAction);
+    expect(result.items[0].done).toEqual(true);
+    expect(result.items[1].done).toEqual(false);
+    expect(result.items[2].done).toEqual(false);
   });
 });
