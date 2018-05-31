@@ -80,9 +80,17 @@ Ideally this should feel as much like normal development as possible.
   give more details!
   
   
-## SUMMARY
+## SUMMARY OF THE EXERCISE
 
-I tried to follow the same approach used in the project, without changing the scaffolding which could be a future improvement like separating the action creators (or even creating a standar action creator) from the reducers or separating the components declarations from the containers so that it can be more readable when the project scales.
-I've developed the requirements following BDD, first refactored the existing tests a little bit and I've added redux-mock-store to prevent any errors due to poorly connected components, and then I started developing the new functionalities one by one.
-There would be other improvements I'd like to add if I had more time, such as some validation at the moment of adding tasks. Also adding webpack would be helpful to customize and improve bundling and incorporate scss or less to the project.
+I tried to follow the same approach used in the project without changing the scaffolding. 
+This could be a future improvement such as: 
+* Separating the action creators (or even creating a standar action creator) from the reducers 
+* Separating the components declarations from the containers so that anything related to the view is in a different file than anything related to redux logic.
+
+I've developed the requirements following BDD. 
+First I refactored the existing tests a little bit and I've added redux-mock-store to prevent any errors due to poorly connected components. 
+Then I started developing the new functionalities one by one.
+
+There would be other improvements I'd like to add if I had more time. 
+For example, some validation at the moment of adding tasks. Also adding webpack would be helpful to customize and improve bundling and incorporate scss or less to the project.
 
