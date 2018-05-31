@@ -1,11 +1,16 @@
-.itemControl-remove {
+.ItemsListItem-remove {
   color: red;
   cursor: pointer;
   margin-left: 20px;
 }
 
-.itemControl-done {
+.ItemsListItem-done {
   color: green;
   cursor: pointer;
   margin-left: 10px;
+}
+
+.ItemsListItem-isDone {
+  margin-right: 10px;
+  display: inline-block;
 }

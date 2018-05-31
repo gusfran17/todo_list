@@ -5,12 +5,12 @@ import './styles.css';
 export const ItemsListItem = ({ item, onRemove, onDone }) => {
   return (
     <p>
-      {item.done? <span>&#10004;</span>: undefined}
+      {item.done? <span className="ItemsListItem-isDone">&#10004;</span>: undefined}
       {item.content}
-      <span className="itemControl-remove" onClick={() => { onRemove(item.id);}}>
+      <span className="ItemsListItem-remove" onClick={() => { onRemove(item.id);}}>
         &#10008;
       </span>
-      <button className="itemControl-done" onClick={() => { onDone(item.id, !item.done);}}>
+      <button className="ItemsListItem-done" onClick={() => { onDone(item.id, !item.done);}}>
         {item.done? "SET AS UNDONE": "SET AS DONE"}
       </button>
     </p>

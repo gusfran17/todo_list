@@ -6,8 +6,10 @@ import ItemsListConnected from '../index';
 describe('Connected ItemsList', () => {
   const initialState = {
     todos: {
+      showCompleted: true,
       onRemove: () => {},
       onDone: () => {},
+      onShowCompleted: () => {},
       items: [{ id: 1, content: 'First' }, { id: 2, content: 'Second' }, { id: 3, content: 'Third' }]
     }
   };
@@ -35,4 +37,11 @@ describe('Connected ItemsList', () => {
     expect(container.prop('onDone')).toBeDefined();
   });
 
+  it('should have onShowCompleted defined function', () => {
+    expect(container.prop('onShowCompleted')).toBeDefined();
+  });
+
+  it('should have a defined showCompleted prop', () => {
+    expect(container.prop('showCompleted')).toBe(true);
+  });
 });

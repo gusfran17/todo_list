@@ -5,3 +5,12 @@
 .itemsList-ul li {
   padding: 5px;
 }
+
+.itemsList-showCompleted {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.hidden {
+  display: none;
+}
