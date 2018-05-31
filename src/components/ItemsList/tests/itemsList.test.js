@@ -4,6 +4,7 @@ import { ItemsList } from '../index';
 
 const defaultProps = {
   items: [],
+  onRemove: () => {}
 };
 
 describe('ItemsList', () => {

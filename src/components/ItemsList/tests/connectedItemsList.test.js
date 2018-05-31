@@ -25,4 +25,8 @@ describe('Connected ItemsList', () => {
     expect(container.prop('items')).toHaveLength(3);
   });
 
+  it('should have defined functions', () => {
+    expect(container.prop('onRemove')).toBeDefined();
+  });
+
 });
